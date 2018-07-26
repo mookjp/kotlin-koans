@@ -3,6 +3,7 @@ package i_introduction._10_Object_Expressions
 import util.TODO
 import util.doc10
 import java.util.*
+import kotlin.Comparator
 
 fun todoTask10(): Nothing = TODO(
     """
@@ -21,10 +22,19 @@ fun task10(): List<Int> {
 
     // TODO: Read object expressions
     // https://kotlinlang.org/docs/reference/object-declarations.html
-    arrayList.sortDescending()
+    Collections.sort(arrayList, object : Comparator<Int> {
+        override fun compare(x: Int, y: Int): Int {
+            return y - x
+        }
+    })
     return arrayList
 }
 
-//Collections.sort(arrayList, object : Comparator<Int> {
-//    override fun compare(x: Int, y: Int) = y - x
-//})
+//class MyComp implements Comparator<Integer> {
+//    @Override
+//    public Integer compare(Integer x, Integer y) {
+//        return y - x
+//    }
+//}
+//Collections.sort(arrayList, new MyComp())
+
