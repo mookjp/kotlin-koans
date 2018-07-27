@@ -12,13 +12,16 @@ fun todoTask30(): Nothing = TODO(
 )
 
 class MyDate(val year: Int, val month: Int, val dayOfMonth: Int)
+operator fun MyDate.component1(): Int = year
+operator fun MyDate.component2(): Int = month
+operator fun MyDate.component3(): Int = dayOfMonth
 
 fun isLeapDay(date: MyDate): Boolean {
-    todoTask30()
-//    val (year, month, dayOfMonth) = date
+//    todoTask30()
+    val (year, month, dayOfMonth) = date
 //
 //    // 29 February of a leap year
-//    return isLeapYear(year) && month == 1 && dayOfMonth == 29
+    return isLeapYear(year) && month == 1 && dayOfMonth == 29
 }
 
 // Years which are multiples of four (with the exception of years divisible by 100 but not by 400)
